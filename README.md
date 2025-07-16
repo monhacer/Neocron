@@ -3,7 +3,7 @@
   <a href="https://t.me/aioexp">
     <img src="https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram" alt="Telegram Channel">
   </a>
-  <a href="https://github.com/monhacer/Nobius/stargazers">
+  <a href="https://github.com/monhacer/Neocron/stargazers">
     <img src="https://img.shields.io/github/stars/monhacer/Neocron?style=social" alt="GitHub stars">
   </a>
 </p>
