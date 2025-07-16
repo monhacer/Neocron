@@ -5,6 +5,16 @@ GREEN='\e[32m'
 YELLOW='\e[33m'
 RESET='\e[0m'
 
+if ! command -v cron >/dev/null 2>&1; then
+    echo -e "${YELLOW}cron is not installed. Installing...${RESET}"
+    sudo apt update && sudo apt install -y cron
+fi
+
+if ! systemctl is-active --quiet cron; then
+    echo -e "${YELLOW}cron service is not running. Starting and enabling it...${RESET}"
+    sudo systemctl enable --now cron
+fi
+
 while true; do
     clear
     echo -e "${GREEN}===========================================${RESET}"
@@ -47,7 +57,6 @@ while true; do
                     echo -e "${RED}Invalid number.${RESET}"
                 else
                     unset 'cronjobs[del_num-1]'
-                    # rebuild crontab without the deleted job
                     printf "%s\n" "${cronjobs[@]}" | crontab -
                     echo -e "${GREEN}Cronjob #$del_num deleted.${RESET}"
                 fi
